@@ -215,7 +215,34 @@ export const getauthUser = async (req, res) => {
     }
 };
 
+export const deleteStatus = async (req, res) => {
+    try {
+      
+        const userdata = await User.findById(req.id);
 
+        if (!userdata) {
+            return res.status(401).json({
+                message: "User not found",
+                success: false
+            });
+        }
+        
+        userdata.status=" "
+        await userdata.save();
+        return res.status(200).json({
+            message: "Status delete Successfull",
+            success: true,
+         
+        });
+
+    } catch (error) {
+        console.error(error);
+        return res.status(500).json({
+            message: "Server error",
+            success: false
+        });
+    }
+};
 
 
 // export const addstatus = async (req, res) => {

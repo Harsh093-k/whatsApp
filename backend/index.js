@@ -18,7 +18,8 @@ app.use(express.urlencoded({extended:true}));
 app.use(express.json()); 
 app.use(cookieParser());
 const corsOption={
-    origin:'https://whats-app-two-eta.vercel.app',
+    // origin:'https://whats-app-two-eta.vercel.app',
+    origin:'http://localhost:3000',
     credentials:true
 };
 app.use(cors(corsOption)); 

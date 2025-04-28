@@ -85,10 +85,13 @@ export const login = async (req, res) => {
 
         const token = await jwt.sign(tokenData, process.env.JWT_SECRET_KEY, { expiresIn: '1d' });
 
-        return res.status(200).cookie("token", token, { maxAge: 1 * 24 * 60 * 60 * 1000, httpOnly: ture, sameSite: 'None', }).json({
+        
+return res.status(200).cookie('token', token, {
+            httpOnly: true, secure: true,
+            sameSite: 'none', maxAge: 1 * 24 * 60 * 60 * 1000
+        }).json({
             userWithoutPassword
         });
-
     } catch (error) {
         console.log(error);
     }

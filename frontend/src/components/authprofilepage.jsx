@@ -90,7 +90,7 @@ const AuthUserProfilePage = () => {
             try {
 
 
-                const res = await axios.get('http://localhost:8080/api/v1/user/me', {
+                const res = await axios.get(`${BASE_URL}/api/v1/user/me`, {
                     withCredentials: true,
                 });
                 setAuthUser(res.data.userdata);

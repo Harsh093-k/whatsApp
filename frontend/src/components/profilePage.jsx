@@ -85,7 +85,7 @@ const ProfilePage = () => {
             try {
                 let res;
                 if (id) {
-                    res = await axios.get(`http://localhost:8080/api/v1/user/profile/${id}`, {
+                    res = await axios.get(`${BASE_URL}/api/v1/user/profile/${id}`, {
                         withCredentials: true,
                     });
                     setAuthUser(res.data.userdata);

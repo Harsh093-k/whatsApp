@@ -115,7 +115,7 @@ const ProfilePage = () => {
             setOpenEdit(false);
             setBio("");
         } catch (error) {
-            toast.error(error.response?.data?.message || "Error updating bio");
+            toast.error(error.res?.data?.message || "Error updating bio");
         }
     };
 
@@ -136,7 +136,7 @@ const ProfilePage = () => {
                     <h2 className="text-2xl font-bold text-center">{authUser?.username}</h2>
                     <p className="text-sm text-green-300 text-center">@{authUser?.email}</p>
                     <p className="mt-2 text-center text-sm text-gray-300">
-                        {authUser?.bio || "Hey there! I'm using ChatApp."}
+                        {authUser?.bio }
                     </p>
 
                     <div className="flex gap-4 mt-4 mx-auto">
